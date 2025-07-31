@@ -1,0 +1,28 @@
+Synthetic data is generated using LLMs, diffusion models and hybrid techniques
+
+Discussing issues with Generating Synthetic data 
+Hallucination
+Bias amplification
+Modal collapse and discuss how to mitigate them using tools like distributional similarity and LLM-as-a-Judge 
+
+How to ground the synthetic data in real-world context
+Synthetic data addresses challenges in foundational model traning such as dataset scarcity, diversity and privacy concerns and annotation frictions
+
+Techniques range from statistical modeling, simulations and generative models (GANs, VAEs, transformers) to domain-specific rule-based systems 
+It enables model training, testing and validation in domains where real data is scarce, sensitive or costly 
+
+Synthetic data addressses several critical challenges
+Data scarcity - Generates datasets where real ones are limited or unaviable (eg: niche industries) 
+Privacy Protection - avoids using real personal data, helping privacy compliance in sensitive domains like healthcare and finance
+Scalability and diversity - Enables large-scale generation of rare scenarios, balanced class distributions or tailor-made edge cases 
+Cost and annotation savings - Automatically labeled synthetic datasets drastically
+
+Key Pitfalls & Risks to watch for 
+Model Collapse: Training models recursively on their own synthetic  outputs can degrade quality and reduce diversity, especially in minority or edge-case data. 
+Bias amplification: If the seed data contains bias, synthetic processes risk magnifyiing those biases or reinforcing unfair distributions
+Lack of realism: Synthetic data may fail to capture real-world complexity: outliers, noise or edge case, leading to overfitting or inaccurate generalization 
+Privacy Leakage: Poorly designed synthetic methods(without differential privacy safeguards) can inadvertently expose sensitive patterns or individual-level attributes 
+
+
+
+
