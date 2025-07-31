@@ -23,6 +23,10 @@ Bias amplification: If the seed data contains bias, synthetic processes risk mag
 Lack of realism: Synthetic data may fail to capture real-world complexity: outliers, noise or edge case, leading to overfitting or inaccurate generalization 
 Privacy Leakage: Poorly designed synthetic methods(without differential privacy safeguards) can inadvertently expose sensitive patterns or individual-level attributes 
 
+Scaling synthetic data 
+Proposes 1 billion diverse personas to facilitate the creation of diverse synthetic data for different scenarios 
 
+Pitfalls
+Hard to Scale the synthetic data with its diversity which is essential for 
 
 
