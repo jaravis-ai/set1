@@ -1,0 +1,36 @@
+https://docs.llamaindex.ai/en/stable/examples/tools/mcp/
+https://docs.llamaindex.ai/en/stable/understanding/workflows/state/
+
+The LlamaIndex core agent workflow is an event-driven orchestration framework designed for building and managing AI agents and multi-agent systems
+It provides a structured approach to defining and executing complex agentic applications
+The core components of a LlamaIndex workflow are
+
+Steps:
+These are the individual units of execution within the workflow. Steps are defined as asynchronous methods within a class that inherits from the Workflow base class, marked with the @step decorator. Each step performs a specific task, such as processing user input, calling an LLM, executing a tool, or managing memory.
+Events:
+These are custom objects that trigger steps and facilitate communication between them. Each step specifies its input and output events through its function signature, determining which events it consumes and which it produces. Special events like StartEvent and EndEvent are reserved for the beginning and end of the workflow. 
+Context:
+A global registry object, accessible from any step, allowing shared information and state to be passed between steps without explicit event passing.
+
+
+The core agent workflow typically involves the following sequence:
+Initialization:
+The workflow is initialized, often with a StartEvent to begin the process.
+Input Handling:
+A step receives the initial input, such as a user message, and prepares it for processing (e.g., adding to memory, retrieving chat history).
+LLM Interaction:
+The agent interacts with the Language Model (LLM), potentially sending tool schemas and chat history.
+Tool Calling (if applicable):
+If the LLM's response indicates tool calls, a step executes these tools to gather more information or perform actions.
+Tool Result Handling:
+The results of the tool calls are processed and incorporated into the agent's context or memory
+Iteration and Response:
+The agent may loop through tool calls and LLM interactions until no further tools are needed, at which point the final LLM response is generated and returned.
+Output and Termination:
+The workflow concludes, potentially emitting an EndEvent and providing the final output.
+
+This event-driven structure with defined steps and events allows for clear organization, flexible control flow, and scalable, asynchronous execution of agentic tasks within LlamaIndex.
+
+
+Ingestion Pipeline 
+https://docs.llamaindex.ai/en/stable/module_guides/loading/ingestion_pipeline/
