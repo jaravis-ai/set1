@@ -34,3 +34,24 @@ This event-driven structure with defined steps and events allows for clear organ
 
 Ingestion Pipeline 
 https://docs.llamaindex.ai/en/stable/module_guides/loading/ingestion_pipeline/
+
+
+Structured Output 
+-----------------
+Conditional Schema Generation: If parts of your schema are truly dynamic (e.g., fields that appear only under certain conditions), you might need to programmatically construct the JSON Schema or Pydantic model before passing it to the LLM, based on the specific context or input.
+Enums for Constrained Values: For fields where the values should be limited to a specific set of options (e.g., categories), use enums within your schema definition. This helps the LLM generate valid choices
+
+from pydantic import BaseModel, Field
+from typing import Optional
+
+class UserProfile(BaseModel):
+    name: str = Field(description="The user's full name")
+    age: int = Field(description="The user's age")
+    email: Optional[str] = Field(default=None, description="The user's email address")
+    interests: list[str] = Field(description="A list of the user's interests")
+
+
+# Assuming you have an LLM instance (e.g., from LangChain)
+# structured_llm = llm.with_structured_output(UserProfile)
+# user_data = structured_llm.invoke("Extract user profile from: John Doe, 30 years old, likes reading and hiking.")
+# print(user_data)
